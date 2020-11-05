@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/atif33/ratp_rosny/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/atif33/ratp_rosny/static/js/main.97eb5ed0.chunk.js",
+    "main.js.map": "/atif33/ratp_rosny/static/js/main.97eb5ed0.chunk.js.map",
+    "runtime-main.js": "/atif33/ratp_rosny/static/js/runtime-main.ec15f33d.js",
+    "runtime-main.js.map": "/atif33/ratp_rosny/static/js/runtime-main.ec15f33d.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/atif33/ratp_rosny/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.5d155d67.chunk.js": "/atif33/ratp_rosny/static/js/2.5d155d67.chunk.js",
+    "static/js/2.5d155d67.chunk.js.map": "/atif33/ratp_rosny/static/js/2.5d155d67.chunk.js.map",
+    "static/js/3.6eb7b8fe.chunk.js": "/atif33/ratp_rosny/static/js/3.6eb7b8fe.chunk.js",
+    "static/js/3.6eb7b8fe.chunk.js.map": "/atif33/ratp_rosny/static/js/3.6eb7b8fe.chunk.js.map",
+    "index.html": "/atif33/ratp_rosny/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/atif33/ratp_rosny/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.ab7136cd.chunk.css.map": "/atif33/ratp_rosny/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.5d155d67.chunk.js.LICENSE.txt": "/atif33/ratp_rosny/static/js/2.5d155d67.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec15f33d.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.5d155d67.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.97eb5ed0.chunk.js"
+  ]
+}
