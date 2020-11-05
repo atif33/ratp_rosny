@@ -1,42 +1,39 @@
 import React, {Component} from "react";
 import axios from "axios";
+import store from "../store/store.js";
+import {busesNumbers, busSelectedNumber, busStations} from "../store/actions/busStations";
+import {connect} from "react-redux";
 
-export class BusNumber extends Component {
+class BusNumber extends Component {
+    componentDidMount(): void {
+        axios.get(`https://api-ratp.pierre-grimaud.fr/v4/lines/buses`)
+            .then((response) => {
+                store.dispatch(busesNumbers(response.data.result.buses));
+            });
+    }
 
-    state = {
-        stations: [{}],
-        busNumber: [118, 123, 121],
-        busSelected: null
-    };
-
-    sendData = () => {
-        this.props.parentCallback(this.state.stations, this.state.busSelected);
-    };
     submitNumberBus = (e) => {
+
         const busSelected = this.state.busSelected;
         axios.get(`https://api-ratp.pierre-grimaud.fr/v4/stations/buses/${busSelected}?way=A`)
             .then((response) => {
-                this.setState({
-                    stations: response.data.result.stations
-                })
+                store.dispatch(busStations(response.data.result.stations));
             });
-        this.sendData();
         e.preventDefault();
-
     };
 
     handleChange = (e) => {
         this.setState({busSelected: e.target.value});
+        store.dispatch(busSelectedNumber(e.target.value));
     };
 
     render() {
         return (
             <form onSubmit={this.submitNumberBus}>
-
                 <select className="form-control" onChange={this.handleChange}>
-                    {this.state.busNumber.map((numberBus, index) => (
+                    {this.props.busNumbers.map((numberBus, index) => (
                         <option key={index}>
-                            {numberBus}
+                            {numberBus.code}
                         </option>
                     ))}
                 </select>
@@ -45,3 +42,13 @@ export class BusNumber extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    console.log(state.busNumbers);
+    return {
+        busNumbers: state.busNumbers
+    }
+}
+
+export default connect(mapStateToProps)(BusNumber);
+

@@ -1,27 +1,8 @@
 import {Component} from "react";
+import {connect} from "react-redux";
 
-export class ApproachBus extends Component {
-    state = {
-        schedules: [{}]
-    };
+class ApproachBus extends Component {
 
-
-    componentDidMount() {
-        this.setState({
-            schedules: this.props.dataFromParent
-        })
-    }
-
-    componentWillReceiveProps(newProps) {
-        console.log(newProps.dataFromParent);
-        console.log(this.props.dataFromParent);
-        const oldProps = this.props.dataFromParent;
-        if (oldProps!== newProps) {
-            this.setState({
-                schedules: this.props.dataFromParent
-            })
-        }
-    }
 
     render() {
         return (
@@ -35,7 +16,7 @@ export class ApproachBus extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.schedules.map((result, index) => (
+                    {this.props.schedules.map((result, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{result.destination}</td>
@@ -49,3 +30,12 @@ export class ApproachBus extends Component {
     }
 
 }
+
+function mapStateToProps(state) {
+    return {
+        schedules: state.schedules,
+        busSelected: state.busSelected
+    }
+}
+
+export default connect(mapStateToProps)(ApproachBus);
