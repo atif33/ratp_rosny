@@ -44,7 +44,6 @@ class BusNumber extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state.busNumbers);
     return {
         busNumbers: state.busNumbers
     }
