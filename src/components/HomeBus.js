@@ -8,6 +8,7 @@ class HomeBus extends Component {
 
     render() {
         return (
+
             <div className="row">
                 <div className="col">
                     <User/>

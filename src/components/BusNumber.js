@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 
 class BusNumber extends Component {
     componentDidMount(): void {
-        axios.get(`https://api-ratp.pierre-grimaud.fr/v4/lines/buses`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/v4/lines/buses`)
             .then((response) => {
                 store.dispatch(busesNumbers(response.data.result.buses));
             });
@@ -15,7 +15,7 @@ class BusNumber extends Component {
     submitNumberBus = (e) => {
 
         const busSelected = this.state.busSelected;
-        axios.get(`https://api-ratp.pierre-grimaud.fr/v4/stations/buses/${busSelected}?way=A`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/v4/stations/buses/${busSelected}?way=A`)
             .then((response) => {
                 store.dispatch(busStations(response.data.result.stations));
             });

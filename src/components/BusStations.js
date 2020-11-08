@@ -8,7 +8,7 @@ class BusStations extends Component {
     getSlugByIndex = (index) => {
         const slug = this.props.stations[index].slug;
         const busSelected = this.props.busSelected;
-        axios.get(`https://api-ratp.pierre-grimaud.fr/v4/schedules/buses/${busSelected}/${slug}/A%2BR`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/v4/schedules/buses/${busSelected}/${slug}/A%2BR`)
             .then((response) => {
                 store.dispatch(busScheduls(response.data.result.schedules));
             });
