@@ -4,13 +4,15 @@ import {useAuth0} from "@auth0/auth0-react";
 
 const ProtectedRoute = ({component: Component, ...rest}) => {
     const {isAuthenticated} = useAuth0();
+
     return (
         <Route {...rest} render={
             props => {
+                console.log(props);
                 if (isAuthenticated) {
                     return <Component {...rest} {...props} />
                 } else {
-                    return <Redirect to="/" />
+                    return <Redirect to="/"/>
                 }
             }
         }/>
